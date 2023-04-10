@@ -1,9 +1,8 @@
-document.addEventListener("mousemove", (event) => {
-  const mouseX = event.clientX;
-  const mouseY = event.clientY;
-  console.log(`Mouse position: (${mouseX}, ${mouseY})`);
-});
-
+// document.addEventListener("mousemove", (event) => {
+//   const mouseX = event.clientX;
+//   const mouseY = event.clientY;
+//   console.log(`Mouse position: (x= ${mouseX}, y= ${mouseY})`);
+// });
 
 class Map extends React.Component{
   constructor(props){
@@ -14,7 +13,9 @@ class Map extends React.Component{
   }
   render(){
     return(
-      <div id="canvas" style={{backgroundImage: `url(${this.state.map})`}}></div>
+      <div id="canvas" style={{backgroundImage: `url(${this.state.map})`}}>
+        <img style={{height: "200px"}} src={"Images/Bosses/Xanafin.png"}></img>
+      </div>
     )
   }
 }

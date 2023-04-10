@@ -3,7 +3,7 @@ class Player extends React.Component{
     super(props)
     this.state={
       name: "",
-      level: 0,
+      level: 1,
       xp: 0,
       gold: 0,
       stage: 1

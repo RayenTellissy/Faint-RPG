@@ -69,28 +69,28 @@ class Character extends React.Component{
     /* key down event            */
     // W event
     addEventListener("keydown", (event)=>{
-      if(event.code==="KeyW" || event.code==="KeyZ"){
+      if(event.key==="w" || event.code==="z"){
         this.setState({
           character: "Images/Character/walkUp.png",
           isWPressed: true
         })
       }
         // A event
-      if(event.code==="KeyA" || event.code==="KeyQ"){
+      if(event.key==="a" || event.key==="q"){
         this.setState({
           character: "Images/Character/walkLeft.png",
           isAPressed: true
         })
       }
         // S event
-      if(event.code==="KeyS"){
+      if(event.key==="s"){
         this.setState({
           character: "Images/Character/walkDown.png",
           isSPressed: true
         })
       }
        // D event
-      if(event.code==="KeyD"){
+      if(event.key==="d"){
         this.setState({
           character: "Images/Character/walkRight.png",
           isDPressed: true
@@ -99,25 +99,25 @@ class Character extends React.Component{
     })
     /*          key up event              */
     addEventListener("keyup", (event)=>{
-      if(event.code==="KeyW" || event.code==="KeyZ"){
+      if(event.key==="w" || event.key==="z"){
         this.setState({
           isWPressed: false
         })
       }
         // A event
-      if(event.code==="KeyA" || event.code==="KeyQ"){
+      if(event.key==="a" || event.key==="q"){
         this.setState({
           isAPressed: false
         })
       }
         // S event
-      if(event.code==="KeyS"){
+      if(event.key==="s"){
         this.setState({
           isSPressed: false
         })
       }
        // D event
-      if(event.code==="KeyD"){
+      if(event.key==="d"){
         this.setState({
           isDPressed: false
         })

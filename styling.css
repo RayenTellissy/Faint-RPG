@@ -1,3 +1,6 @@
+body{
+  background-color: rgba(197,255,189,255);
+}
 #canvas{
   border: 2px solid;
   border-radius: 8px;

@@ -7,7 +7,9 @@ body{
   height:900px;
   width: 1200px;
   margin: auto;
-  background: rgb(220, 220, 220);
+  background-image: url(Maps/dogmap.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
 .stat {
   display: inline-block;

@@ -41,43 +41,99 @@ class Stage1 extends React.Component{
       character: "Images/Character/standDown.png",
       characterX: 550,
       characterY: 400,
-      velocityRight: 8,
-      velocityLeft: -8,
-      velocityUp: -8,
-      velocityDown: 8
+      velocityRight: 5,
+      velocityLeft: -5,
+      velocityUp: -5,
+      velocityDown: 5,
+      isWPressed: false,
+      isSPressed: false,
+      isAPressed: false,
+      isDPressed: false
     }
   }
   componentDidMount(){
+    /* key down event            */
     // W event
     addEventListener("keydown", (event)=>{
       if(event.keyCode===87){
         this.setState({
           character: "Images/Character/walkUp.png",
-          characterY: this.state.characterY+this.state.velocityUp
+          characterY: this.state.characterY+this.state.velocityUp,
+          isWPressed: true
         })
       }
         // A event
       if(event.keyCode===65){
         this.setState({
           character: "Images/Character/walkLeft.png",
-          characterX: this.state.characterX+this.state.velocityLeft
+          characterX: this.state.characterX+this.state.velocityLeft,
+          isAPressed: true
         })
       }
         // S event
       if(event.keyCode===83){
         this.setState({
           character: "Images/Character/walkDown.png",
-          characterY: this.state.characterY+this.state.velocityDown
+          characterY: this.state.characterY+this.state.velocityDown,
+          isSPressed: true
         })
       }
        // D event
       if(event.keyCode===68){
         this.setState({
           character: "Images/Character/walkRight.png",
-          characterX: this.state.characterX+this.state.velocityRight
+          characterX: this.state.characterX+this.state.velocityRight,
+          isDPressed: true
         })
       }
     })
+    /*          key up event              */
+    addEventListener("keyup", (event)=>{
+      if(event.keyCode===87){
+        this.setState({
+          isWPressed: false
+        })
+      }
+        // A event
+      if(event.keyCode===65){
+        this.setState({
+          isAPressed: false
+        })
+      }
+        // S event
+      if(event.keyCode===83){
+        this.setState({
+          isSPressed: false
+        })
+      }
+       // D event
+      if(event.keyCode===68){
+        this.setState({
+          isDPressed: false
+        })
+      }
+    })
+    setInterval(()=>{
+      var characterX=this.state.characterX
+      var characterY=this.state.characterY
+      
+      if(this.state.isWPressed){
+        characterY+=this.state.velocityUp
+      }
+      if(this.state.isSPressed){
+        characterY+=this.state.velocityDown
+      }
+      if(this.state.isAPressed){
+        characterX+=this.state.velocityLeft
+      }
+      if(this.state.isDPressed){
+        characterX+=this.state.velocityRight
+      }
+      this.setState({
+        characterX: characterX,
+        characterY: characterY
+      })
+    },16)
   }
   render(){
     return(

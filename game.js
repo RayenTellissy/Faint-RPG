@@ -1,4 +1,18 @@
-class Player extends React.Component{
+class Map extends React.Component{
+  constructor(props){
+    super(props)
+    this.state={
+      map: ""
+    }
+  }
+  render(){
+    return(
+      <div id="canvas"></div>
+    )
+  }
+}
+
+class Stats extends React.Component{
   constructor(props){
     super(props)
     this.state={
@@ -34,17 +48,17 @@ class Player extends React.Component{
 }
 
 
-class Stage1 extends React.Component{
+class Character extends React.Component{
   constructor(props){
     super(props)
     this.state={
       character: "Images/Character/standDown.png",
       characterX: 550,
       characterY: 400,
-      velocityRight: 5,
-      velocityLeft: -5,
-      velocityUp: -5,
-      velocityDown: 5,
+      velocityRight: 4,
+      velocityLeft: -4,
+      velocityUp: -4,
+      velocityDown: 4,
       isWPressed: false,
       isSPressed: false,
       isAPressed: false,
@@ -55,59 +69,55 @@ class Stage1 extends React.Component{
     /* key down event            */
     // W event
     addEventListener("keydown", (event)=>{
-      if(event.keyCode===87){
+      if(event.code==="KeyW" || event.code==="KeyZ"){
         this.setState({
           character: "Images/Character/walkUp.png",
-          characterY: this.state.characterY+this.state.velocityUp,
           isWPressed: true
         })
       }
         // A event
-      if(event.keyCode===65){
+      if(event.code==="KeyA" || event.code==="KeyQ"){
         this.setState({
           character: "Images/Character/walkLeft.png",
-          characterX: this.state.characterX+this.state.velocityLeft,
           isAPressed: true
         })
       }
         // S event
-      if(event.keyCode===83){
+      if(event.code==="KeyS"){
         this.setState({
           character: "Images/Character/walkDown.png",
-          characterY: this.state.characterY+this.state.velocityDown,
           isSPressed: true
         })
       }
        // D event
-      if(event.keyCode===68){
+      if(event.code==="KeyD"){
         this.setState({
           character: "Images/Character/walkRight.png",
-          characterX: this.state.characterX+this.state.velocityRight,
           isDPressed: true
         })
       }
     })
     /*          key up event              */
     addEventListener("keyup", (event)=>{
-      if(event.keyCode===87){
+      if(event.code==="KeyW" || event.code==="KeyZ"){
         this.setState({
           isWPressed: false
         })
       }
         // A event
-      if(event.keyCode===65){
+      if(event.code==="KeyA" || event.code==="KeyQ"){
         this.setState({
           isAPressed: false
         })
       }
         // S event
-      if(event.keyCode===83){
+      if(event.code==="KeyS"){
         this.setState({
           isSPressed: false
         })
       }
        // D event
-      if(event.keyCode===68){
+      if(event.code==="KeyD"){
         this.setState({
           isDPressed: false
         })
@@ -137,10 +147,8 @@ class Stage1 extends React.Component{
   }
   render(){
     return(
-      <div>
-        <div id="canvas">
-          <img style={{height: "100px", transform: `translateX(${this.state.characterX}px) translateY(${this.state.characterY}px)`}} src={this.state.character}></img>
-        </div>
+      <div style={{height: "0px", width: "0px"}}>
+        <img style={{height: "100px", transform: `translateX(${this.state.characterX}px) translateY(${this.state.characterY}px)`}} src={this.state.character}></img>
       </div>
     )
   }
@@ -148,8 +156,9 @@ class Stage1 extends React.Component{
 
 var App=()=>(
   <div>
-    <Stage1/>
-    <Player/>
+    <Character/>
+    <Map/>
+    <Stats/>
   </div>
 )
 

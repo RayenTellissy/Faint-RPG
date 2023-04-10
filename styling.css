@@ -11,6 +11,7 @@
   margin: 0 10px;
 }
 #stats{
+  background-color: rgb(185, 182, 168) ;
   display: flex;
   border: 2px solid;
   border-radius: 3px;

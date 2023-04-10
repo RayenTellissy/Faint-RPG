@@ -7,7 +7,7 @@ class Map extends React.Component{
   }
   render(){
     return(
-      <div id="canvas"></div>
+      <div id="canvas"  style={{backgroundImage: `url(${this.state.map}))`}}></div>
     )
   }
 }

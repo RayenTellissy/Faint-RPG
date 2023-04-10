@@ -1,3 +1,10 @@
+document.addEventListener("mousemove", (event) => {
+  const mouseX = event.clientX;
+  const mouseY = event.clientY;
+  console.log(`Mouse position: (${mouseX}, ${mouseY})`);
+});
+
+
 class Map extends React.Component{
   constructor(props){
     super(props)
@@ -7,7 +14,7 @@ class Map extends React.Component{
   }
   render(){
     return(
-      <div id="canvas"  style={{backgroundImage: `url(${this.state.map}))`}}></div>
+      <div id="canvas" style={{backgroundImage: `url(${this.state.map})`}}></div>
     )
   }
 }
@@ -53,7 +60,7 @@ class Character extends React.Component{
     super(props)
     this.state={
       character: "Images/Character/standDown.png",
-      characterX: 550,
+      characterX: 900,
       characterY: 400,
       velocityRight: 4,
       velocityLeft: -4,
@@ -66,10 +73,10 @@ class Character extends React.Component{
     }
   }
   componentDidMount(){
-    /* key down event            */
+    /*       key down event            */
     // W event
     addEventListener("keydown", (event)=>{
-      if(event.key==="w" || event.code==="z"){
+      if(event.key==="w" || event.key==="z"){
         this.setState({
           character: "Images/Character/walkUp.png",
           isWPressed: true
@@ -127,16 +134,16 @@ class Character extends React.Component{
       var characterX=this.state.characterX
       var characterY=this.state.characterY
       
-      if(this.state.isWPressed){
+      if(this.state.isWPressed && this.state.characterY>-10){
         characterY+=this.state.velocityUp
       }
-      if(this.state.isSPressed){
+      if(this.state.isSPressed && this.state.characterY<805){
         characterY+=this.state.velocityDown
       }
-      if(this.state.isAPressed){
+      if(this.state.isAPressed && this.state.characterX>300){
         characterX+=this.state.velocityLeft
       }
-      if(this.state.isDPressed){
+      if(this.state.isDPressed && this.state.characterX<1462){
         characterX+=this.state.velocityRight
       }
       this.setState({

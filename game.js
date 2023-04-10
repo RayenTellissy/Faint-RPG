@@ -10,9 +10,9 @@ class Player extends React.Component{
     }
   }
 
-  // componentDidMount(){
-  //   this.setName()
-  // }
+  componentDidMount(){
+    this.setName()
+  }
   setName(){
     const name=prompt("Enter your name")
     this.setState({

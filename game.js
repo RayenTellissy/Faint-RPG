@@ -8,7 +8,7 @@ class Map extends React.Component{
   constructor(props){
     super(props)
     this.state={
-      map: "Maps/FirstStage/HOPONRUST.png"
+      map: "Maps/FirstStage/Map_First.png"
     }
   }
   render(){

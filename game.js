@@ -8,7 +8,7 @@ class Map extends React.Component{
   constructor(props){
     super(props)
     this.state={
-      map: "Maps/FirstStage/Map_First.png"
+      map: "Maps/FirstStage/HOPONRUST.png"
     }
   }
   render(){
@@ -63,10 +63,10 @@ class Character extends React.Component{
       character: "Images/Character/standDown.png",
       characterX: 900,
       characterY: 400,
-      velocityRight: 4,
-      velocityLeft: -4,
-      velocityUp: -4,
-      velocityDown: 4,
+      velocityRight: 3,
+      velocityLeft: -3,
+      velocityUp: -3,
+      velocityDown: 3,
       isWPressed: false,
       isSPressed: false,
       isAPressed: false,

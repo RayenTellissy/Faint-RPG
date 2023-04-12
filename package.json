@@ -1,8 +1,11 @@
-{ "homepage": "https://rayentellissy.github.io/Faint-RPG",
+{ "homepage": "http://rayentellissy.github.io/Faint-RPG",
+  "repository": {
+    "url": "git+https://github.com/rayentellissy/Faint-RPG.git"
+  },
   "scripts": {
+    "build": "webpack --mode=development",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "build": "webpack",
+    "deploy": "gh-pages -d dist",
     "start": "webpack --mode=development --watch"
   },
   "dependencies": {

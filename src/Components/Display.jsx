@@ -1,9 +1,8 @@
 import React, { useState } from "react"
 import Character from "./Character.jsx"
 
-
 const Display=()=>{
-  const [map,setMap]= useState("../../src/data/Maps/main/Map_First.png")
+  const [map,setMap]= useState("../../src/data/Maps/main/stage1/stage1.png")
     return(
       <div id="canvas" style={{backgroundImage: `url(${map})`}}>
         <Character/>

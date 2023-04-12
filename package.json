@@ -1,5 +1,5 @@
 { "scripts": {
-    "build": "webpack",
+    "build": "webpack --mode production --output-path ./",
     "start": "webpack --mode=development --watch"
   },
   "dependencies": {

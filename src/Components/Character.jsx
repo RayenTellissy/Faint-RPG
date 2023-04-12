@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 
 const Character = () => {
-  const [character, setCharacter] = useState("../data/Player/Character/standDown.png")
+  const [character, setCharacter] = useState("../../src/data/Player/Character/standDown.png")
   const [characterX, setCharacterX] = useState(900)
   const [characterY, setCharacterY] = useState(400)
   const [velocityRight, setVelocityRight] = useState(3)

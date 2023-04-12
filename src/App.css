@@ -7,7 +7,6 @@ body{
   height:900px;
   width: 1200px;
   margin: auto;
-  background-image: url(Maps/dogmap.png);
   background-repeat: no-repeat;
   background-size: 100%;
 }

@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import Character from "./Character.jsx"
 
+
 const Display=()=>{
   const [map,setMap]= useState("../../src/data/Maps/main/Map_First.png")
     return(

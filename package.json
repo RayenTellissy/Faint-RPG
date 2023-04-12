@@ -1,5 +1,8 @@
-{ "scripts": {
-    "build": "webpack --mode production --output-path ./",
+{ "homepage": "https://rayentellissy.github.io/Faint-RPG",
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "build": "webpack",
     "start": "webpack --mode=development --watch"
   },
   "dependencies": {

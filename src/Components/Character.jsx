@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from "react"
+import standDown from "../images/Player/standDown.png"
+import walkUp from "../images/Player/walkUp.png"
+import walkDown from "../images/Player/walkDown.png"
+import walkRight from "../images/Player/walkRight.png"
+import walkLeft from "../images/Player/walkLeft.png"
 
 
 const Character = () => {
-  const [character, setCharacter] = useState("../../images/Player/standDown.png")
+  const [character, setCharacter] = useState(standDown)
   const [characterX, setCharacterX] = useState(900)
   const [characterY, setCharacterY] = useState(400)
   const [velocityRight, setVelocityRight] = useState(3)
@@ -17,19 +22,19 @@ const Character = () => {
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.key === "w" || event.key === "z") {
-        setCharacter("../../images/Player/walkUp.png")
+        setCharacter(walkUp)
         setIsWPressed(true)
       }
       if (event.key === "a" || event.key === "q") {
-        setCharacter("../../images/Player/walkLeft.png")
+        setCharacter(walkLeft)
         setIsAPressed(true)
       }
       if (event.key === "s") {
-        setCharacter("../../images/Player/walkDown.png")
+        setCharacter(walkDown)
         setIsSPressed(true)
       }
       if (event.key === "d") {
-        setCharacter("../../images/Player/walkRight.png")
+        setCharacter(walkRight)
         setIsDPressed(true)
       }
     }

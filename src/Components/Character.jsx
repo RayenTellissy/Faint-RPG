@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react"
 
+
 const Character = () => {
-  const [character, setCharacter] = useState("../../src/data/Player/Character/standDown.png")
+  const [character, setCharacter] = useState("../../images/Player/standDown.png")
   const [characterX, setCharacterX] = useState(900)
   const [characterY, setCharacterY] = useState(400)
   const [velocityRight, setVelocityRight] = useState(3)
@@ -16,19 +17,19 @@ const Character = () => {
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.key === "w" || event.key === "z") {
-        setCharacter("../../src/data/Player/Character/walkUp.png")
+        setCharacter("../../images/Player/walkUp.png")
         setIsWPressed(true)
       }
       if (event.key === "a" || event.key === "q") {
-        setCharacter("../../src/data/Player/Character/walkLeft.png")
+        setCharacter("../../images/Player/walkLeft.png")
         setIsAPressed(true)
       }
       if (event.key === "s") {
-        setCharacter("../../src/data/Player/Character/walkDown.png")
+        setCharacter("../../images/Player/walkDown.png")
         setIsSPressed(true)
       }
       if (event.key === "d") {
-        setCharacter("../../src/data/Player/Character/walkRight.png")
+        setCharacter("../../images/Player/walkRight.png")
         setIsDPressed(true)
       }
     }

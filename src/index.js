@@ -6,6 +6,4 @@ import App from "./App.jsx";
 
 const container = document.getElementById('app');
 const root = createRoot(container);
-root.render(
-  <App/>
-)
+root.render(<App/>)

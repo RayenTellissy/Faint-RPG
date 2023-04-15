@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useContext } from "react"
+import { Context } from "./Context.jsx"
 import standDown from "../images/Player/standDown.png"
 import walkUp from "../images/Player/walkUp.png"
 import walkDown from "../images/Player/walkDown.png"
@@ -6,10 +7,10 @@ import walkRight from "../images/Player/walkRight.png"
 import walkLeft from "../images/Player/walkLeft.png"
 
 
+
 const Character = () => {
+  const { characterX, characterY, updateStage, updateCharacterX, updateCharacterY }=useContext(Context)
   const [character, setCharacter] = useState(standDown)
-  const [characterX, setCharacterX] = useState(900)
-  const [characterY, setCharacterY] = useState(400)
   const [velocityRight, setVelocityRight] = useState(3)
   const [velocityLeft, setVelocityLeft] = useState(-3)
   const [velocityUp, setVelocityUp] = useState(-3)
@@ -20,6 +21,7 @@ const Character = () => {
   const [isDPressed, setIsDPressed] = useState(false)
 
   useEffect(() => {
+    // console.log(`CharacterX: ${characterX} , CharacterY: ${characterY}`)
     const handleKeyDown = (event) => {
       if (event.key === "w" || event.key === "z") {
         setCharacter(walkUp)
@@ -58,24 +60,24 @@ const Character = () => {
     document.addEventListener("keyup", handleKeyUp)
 
     const interval = setInterval(() => {
-      let newCharacterX = characterX
-      let newCharacterY = characterY
+      var newCharacterX = characterX
+      var newCharacterY = characterY
 
-      if (isWPressed) {
+      if (isWPressed && characterY>-10) {
         newCharacterY += velocityUp
       }
-      if (isSPressed) {
+      if (isSPressed && characterY<805) {
         newCharacterY += velocityDown
       }
-      if (isAPressed) {
+      if (isAPressed && characterX>300) {
         newCharacterX += velocityLeft
       }
-      if (isDPressed) {
+      if (isDPressed && characterX<1455) {
         newCharacterX += velocityRight
       }
 
-      setCharacterX(newCharacterX)
-      setCharacterY(newCharacterY)
+      updateCharacterX(newCharacterX)
+      updateCharacterY(newCharacterY)
     }, 16)
 
     return () => {
@@ -86,9 +88,7 @@ const Character = () => {
   }, [characterX, characterY, isWPressed, isSPressed, isAPressed, isDPressed])
 
   return (
-    <div style={{ height: "0px", width: "0px" }}>
-      <img style={{ height: "100px", transform: `translateX(${characterX}px) translateY(${characterY}px)` }} src={character} />
-    </div>
+    <img style={{position: "absolute", height: "100px", transform: `translateX(${characterX}px) translateY(${characterY}px)` }} src={character} />
   )
 }
 

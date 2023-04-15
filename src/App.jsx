@@ -1,12 +1,20 @@
-import React from 'react'
-import Display from './Components/Display.jsx'
-import Stats from './Components/Stats.jsx';
+import React from "react"
+import Stats from "./Components/Stats.jsx";
+import Character from "./Components/Character.jsx";
+import { ContextProvider } from "./Components/Context.jsx";
+import { Map } from "./Components/Map.jsx";
+
+
+// MouseHandler
 
 const App=()=>{
   return (
     <div>
-      <Display />
-      <Stats />
+      <ContextProvider>
+        <Character/>
+        <Map/>
+        <Stats/>
+      </ContextProvider>
     </div>
   )
 }

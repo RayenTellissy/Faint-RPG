@@ -5,11 +5,10 @@ const Stats = () => {
   const [level, setLevel] = useState(1)
   const [xp, setXP] = useState(0)
   const [gold, setGold] = useState(0)
-  const [stage, setStage] = useState(1)
 
-  useEffect(() => {
-    setName(prompt("Enter your name"))
-  }, [])
+  // useEffect(() => {
+  //   setName(prompt("Enter your name"))
+  // }, [])
 
   return (
     <div id="stats">

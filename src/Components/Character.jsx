@@ -23,7 +23,6 @@ const Character = () => {
   useEffect(() => {
     // console.log(`CharacterX: ${characterX} , CharacterY: ${characterY}`)
     const handleKeyDown = (event) => {
-      console.log(`x: ${characterX}, y: ${characterY}`)
       if (event.key === "w" || event.key === "z") {
         setCharacter(walkUp)
         setIsWPressed(true)

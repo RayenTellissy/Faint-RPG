@@ -14,16 +14,19 @@ import Quest_Question from "../images/Quest/Quest_Question.gif"
 import Quest from "./Quest.jsx"
 import Character from "./Character.jsx"
 
-const questInDistance=(NPCx,NPCy,characterX,characterY)=>{
-    const left=NPCx-200
-    const right=NPCx+200
-    const top=NPCy-200
-    const bottom=NPCy+200
-    
-    if(characterX>left && characterX<right && characterY>top && characterY<bottom){
-      console.log("yo")
-    }
+
+
+const questInDistance=(fn,characterX,characterY,NPCx,NPCy)=>{
+  const left=NPCx-200
+  const right=NPCx+200
+  const top=NPCy-200
+  const bottom=NPCy+200
+  
+  if(characterX>left && characterX<right && characterY>top && characterY<bottom){
+    fn(true)
+  }
 }
+
 
 const Stage0=()=>{
   const { characterX, characterY }=useContext(Context)
@@ -40,7 +43,7 @@ const Stage0=()=>{
 
       <Character/>
 
-      <img style={{height: "200px", cursor: "pointer", transform: transform(xanafinX,xanafinY)}} src={NPCs[0]["src"]} onClick={questInDistance(xanafinX,xanafinY,characterX,characterY)}></img>
+      <img style={{height: "200px", cursor: "pointer", transform: transform(xanafinX,xanafinY)}} src={NPCs[0]["src"]} onClick={()=>questInDistance(setShowQuest,characterX,characterY,xanafinX,xanafinY)}></img>
       <img style={NPCs[0]["questIcon"]} src={Quest_Question}/>
       {showQuest && <Quest quest={NPCs[0]["quest"]} viewQuest={viewQuest}/>}
     </div>

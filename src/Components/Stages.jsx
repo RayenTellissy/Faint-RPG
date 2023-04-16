@@ -15,22 +15,14 @@ import Quest from "./Quest.jsx"
 import Character from "./Character.jsx"
 
 const questInDistance=(NPCx,NPCy,characterX,characterY)=>{
-    const left=x-width/2
-    const right=x+width/2
-    const top=y-height/2
-    const bottom=y+height/2
+    const left=NPCx-200
+    const right=NPCx+200
+    const top=NPCy-200
+    const bottom=NPCy+200
     
-    if(characterX>left && characterX<right && CharacterY>top && CharacterY<bottom){
-
+    if(characterX>left && characterX<right && characterY>top && characterY<bottom){
+      console.log("yo")
     }
-}
-
-const onEnter=()=>{
-  console.log("entered quest zone")
-}
-
-const onLeave=()=>{
-  console.log("left quest zone")
 }
 
 const Stage0=()=>{
@@ -45,10 +37,10 @@ const Stage0=()=>{
 
   return (
     <div id="canvas" style={{backgroundImage: `url(${maps[0]})`}}>
-      
+
       <Character/>
 
-      <img style={{height: "200px", cursor: "pointer", transform: transform(xanafinX,xanafinY)}} src={NPCs[0]["src"]}></img>
+      <img style={{height: "200px", cursor: "pointer", transform: transform(xanafinX,xanafinY)}} src={NPCs[0]["src"]} onClick={questInDistance(xanafinX,xanafinY,characterX,characterY)}></img>
       <img style={NPCs[0]["questIcon"]} src={Quest_Question}/>
       {showQuest && <Quest quest={NPCs[0]["quest"]} viewQuest={viewQuest}/>}
     </div>

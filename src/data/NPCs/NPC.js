@@ -11,6 +11,7 @@ const npcPosition=[
 const NPCs=[{
   name: "Xanafin",
   src: Friendly_Xanafin,
+  questTitle: "Welcome Aboard...",
   quest: "Hello there, Traveller. I was battling and i got injured. can you get me that fruit over there?",
   reward: "Basic Sword, 70xp",
   x: npcPosition[0]["x"],

@@ -6,6 +6,7 @@ export const ContextProvider=({children})=>{
   const [stage, setStage] = useState(0)
   const [characterX, setCharacterX] = useState(900)
   const [characterY, setCharacterY] = useState(400)
+  const [npc,setNpc] = useState({})  // NPCs OBJECTS
 
   const updateStage=(n)=>{
     setStage(n)

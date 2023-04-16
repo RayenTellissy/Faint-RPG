@@ -23,35 +23,35 @@ const Character = () => {
   useEffect(() => {
     // console.log(`CharacterX: ${characterX} , CharacterY: ${characterY}`)
     const handleKeyDown = (event) => {
-      if (event.key === "w" || event.key === "z") {
+      if (event.key.toUpperCase() === "W" || event.key.toUpperCase() === "Z") {
         setCharacter(walkUp)
         setIsWPressed(true)
       }
-      if (event.key === "a" || event.key === "q") {
+      if (event.key.toUpperCase() === "A" || event.key.toUpperCase() === "Q") {
         setCharacter(walkLeft)
         setIsAPressed(true)
       }
-      if (event.key === "s") {
+      if (event.key.toUpperCase() === "S") {
         setCharacter(walkDown)
         setIsSPressed(true)
       }
-      if (event.key === "d") {
+      if (event.key.toUpperCase() === "D") {
         setCharacter(walkRight)
         setIsDPressed(true)
       }
     }
 
     const handleKeyUp = (event) => {
-      if (event.key === "w" || event.key === "z") {
+      if (event.key.toUpperCase() === "W" || event.key.toUpperCase() === "Z") {
         setIsWPressed(false)
       }
-      if (event.key === "a" || event.key === "q") {
+      if (event.key.toUpperCase() === "A" || event.key.toUpperCase() === "Q") {
         setIsAPressed(false)
       }
-      if (event.key === "s") {
+      if (event.key.toUpperCase() === "S") {
         setIsSPressed(false)
       }
-      if (event.key === "d") {
+      if (event.key.toUpperCase() === "D") {
         setIsDPressed(false)
       }
     }

@@ -9,7 +9,7 @@ import walkLeft from "../images/Player/walkLeft.png"
 
 
 const Character = () => {
-  const { characterX, characterY, updateStage, updateCharacterX, updateCharacterY }=useContext(Context)
+  const { characterX, characterY, updateCharacterX, updateCharacterY, moveAllowed }=useContext(Context)
   const [character, setCharacter] = useState(standDown)
   const [velocityRight, setVelocityRight] = useState(3)
   const [velocityLeft, setVelocityLeft] = useState(-3)
@@ -63,16 +63,16 @@ const Character = () => {
       var newCharacterX = characterX
       var newCharacterY = characterY
 
-      if (isWPressed && characterY>-10) {
+      if (isWPressed && characterY>-10 && moveAllowed) {
         newCharacterY += velocityUp
       }
-      if (isSPressed && characterY<805) {
+      if (isSPressed && characterY<805 && moveAllowed) {
         newCharacterY += velocityDown
       }
-      if (isAPressed && characterX>300) {
+      if (isAPressed && characterX>300 && moveAllowed) {
         newCharacterX += velocityLeft
       }
-      if (isDPressed && characterX<1455) {
+      if (isDPressed && characterX<1455 && moveAllowed) {
         newCharacterX += velocityRight
       }
 

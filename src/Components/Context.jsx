@@ -6,7 +6,11 @@ export const ContextProvider=({children})=>{
   const [stage, setStage] = useState(0)
   const [characterX, setCharacterX] = useState(900)
   const [characterY, setCharacterY] = useState(400)
-  const [npc,setNpc] = useState({})  // NPCs OBJECTS
+  const [moveAllowed,setMoveAllowed]= useState(true)
+
+  const allowMove=()=>{
+    setMoveAllowed(!moveAllowed)
+  }
 
   const updateStage=(n)=>{
     setStage(n)
@@ -14,13 +18,13 @@ export const ContextProvider=({children})=>{
 
   const updateCharacterX = (n) => {
     setCharacterX(n);
-  };
+  }
   
   const updateCharacterY = (n) => {
-    setCharacterY(n);
-  };
+    setCharacterY(n)
+  }
   return(
-    <Context.Provider value={{stage,updateStage,characterX,characterY,updateCharacterX,updateCharacterY}}>
+    <Context.Provider value={{stage,updateStage,characterX,characterY,updateCharacterX,updateCharacterY,moveAllowed,allowMove}}>
       {children}
     </Context.Provider>
   )

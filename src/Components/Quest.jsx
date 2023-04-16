@@ -1,7 +1,11 @@
-import React from "react"
-import NPCs from "../data/NPCs/NPC.js"
+import React, { useContext, useEffect } from "react"
+import { Context } from "./Context.jsx"
 
-const Quest=({quest})=>{
+const Quest=({quest,viewQuest})=>{
+  const { allowMove }=useContext(Context)
+  useEffect(()=>{
+    allowMove()
+  },[])
   return(
     <div style={{display: "absolute"}}>
       <div style={{
@@ -17,7 +21,7 @@ const Quest=({quest})=>{
         justifyContent: 'center',
         alignItems: 'center'
       }}>
-        <h2 style={{textAlign: 'center'}}>Title</h2>
+        <h2 style={{textAlign: 'center'}}>Quest</h2>
         <p>{quest}</p>
         <div style={{display: "inline-block"}}>
           <button style={{
@@ -25,17 +29,20 @@ const Quest=({quest})=>{
             color: 'white',
             border: 'none',
             borderRadius: '5px',
-            padding: '10px 20px',
+            padding: '10px',
             cursor: 'pointer'
-          }}>Accept</button>
+            }}
+            onClick={()=>{allowMove();viewQuest()}}>Accept</button>
           <button style={{
             backgroundColor: 'darkorange',
             color: 'white',
             border: 'none',
             borderRadius: '5px',
-            padding: '10px 20px',
-            cursor: 'pointer'
-          }}>Decline</button>
+            padding: '10px',
+            cursor: 'pointer',
+            marginLeft: "10px"
+            }}
+          onClick={()=>{allowMove();viewQuest()}}>Decline</button>
         </div>
       </div>
     </div>

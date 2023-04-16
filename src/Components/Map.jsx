@@ -14,10 +14,9 @@ import Quest from "./Quest.jsx"
 
 const questInDistance=(fn,x,y,characterX,characterY)=>{
   if(characterX-x>140 && characterY-y>140){
-    alert("too far")
+    console.log("too far")
   }
   else{
-    console.log("w")
     fn(true)
   }
   
@@ -26,11 +25,15 @@ const questInDistance=(fn,x,y,characterX,characterY)=>{
 const Stage1=()=>{
   const { characterX, characterY }=useContext(Context)
   const [showQuest,setShowQuest]=useState(false)
+  
+  const viewQuest=()=>{
+    setShowQuest(!showQuest)
+  }
   return (
     <div id="canvas" style={{backgroundImage: `url(${maps[0]})`}}>
       <img style={{height: "200px", cursor: "pointer", transform: NPCs[0]["position"]}} src={NPCs[0]["src"]} onClick={()=>questInDistance(setShowQuest,0,0,characterX,characterY)}></img>
       <img style={{position: "absolute",height: "40px", transform: "translateX(-101px) translateY(27px)"}} src={Quest_Question}/>
-      {showQuest && <Quest quest={NPCs[0]["quest"]}/>}
+      {showQuest && <Quest quest={NPCs[0]["quest"]} viewQuest={viewQuest}/>}
     </div>
 
   )

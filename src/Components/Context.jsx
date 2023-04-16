@@ -4,8 +4,8 @@ export const Context=createContext()
 
 export const ContextProvider=({children})=>{
   const [stage, setStage] = useState(0)
-  const [characterX, setCharacterX] = useState(900)
-  const [characterY, setCharacterY] = useState(400)
+  const [characterX, setCharacterX] = useState(520)
+  const [characterY, setCharacterY] = useState(370)
   const [moveAllowed,setMoveAllowed]= useState(true)
 
   const allowMove=()=>{

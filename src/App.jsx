@@ -11,7 +11,6 @@ const App=()=>{
   return (
     <div>
       <ContextProvider>
-        <Character/>
         <Map/>
         <Stats/>
       </ContextProvider>

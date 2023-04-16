@@ -23,6 +23,7 @@ const Character = () => {
   useEffect(() => {
     // console.log(`CharacterX: ${characterX} , CharacterY: ${characterY}`)
     const handleKeyDown = (event) => {
+      console.log(`x: ${characterX}, y: ${characterY}`)
       if (event.key === "w" || event.key === "z") {
         setCharacter(walkUp)
         setIsWPressed(true)
@@ -63,16 +64,16 @@ const Character = () => {
       var newCharacterX = characterX
       var newCharacterY = characterY
 
-      if (isWPressed && characterY>-10 && moveAllowed) {
+      if (isWPressed && characterY>-12 && moveAllowed) {
         newCharacterY += velocityUp
       }
-      if (isSPressed && characterY<805 && moveAllowed) {
+      if (isSPressed && characterY<806 && moveAllowed) {
         newCharacterY += velocityDown
       }
-      if (isAPressed && characterX>300 && moveAllowed) {
+      if (isAPressed && characterX>-32 && moveAllowed) {
         newCharacterX += velocityLeft
       }
-      if (isDPressed && characterX<1455 && moveAllowed) {
+      if (isDPressed && characterX<1131 && moveAllowed) {
         newCharacterX += velocityRight
       }
 

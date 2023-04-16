@@ -4,7 +4,8 @@ import Friendly_Xanafin from "../../images/NPCs/Friendly_Xanafin.png"
 
 const npcPosition=[
   {name: "Xanafin",x: 0,y:0},
-  {}]
+  {}
+]
 
 
 const NPCs=[{

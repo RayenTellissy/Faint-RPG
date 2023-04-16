@@ -23,6 +23,8 @@ export const ContextProvider=({children})=>{
   const updateCharacterY = (n) => {
     setCharacterY(n)
   }
+
+  
   return(
     <Context.Provider value={{stage,updateStage,characterX,characterY,updateCharacterX,updateCharacterY,moveAllowed,allowMove}}>
       {children}

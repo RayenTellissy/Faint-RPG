@@ -1,11 +1,14 @@
 import React, { useContext, useState } from "react"
 import { Context } from "./Context.jsx"
 
+//position handler
+import { transform } from "../Handlers/positionHandler.js"
+
 /*          NPC IMPORTS                */
 import NPCs from "../data/NPCs/NPC.js"
 
 /*               MAP IMPORTS            */
-import Stage1_Map from "../images/Maps/stage1.png"
+import Stage0_Map from "../images/Maps/stage0.png"
 
 /*               QUEST RELATED IMPORTS        */
 import Quest_Conversation from "../images/Quest/Quest_Conversation.gif"
@@ -22,7 +25,7 @@ const questInDistance=(fn,x,y,characterX,characterY)=>{
   
 }
 
-const Stage1=()=>{
+const Stage0=()=>{
   const { characterX, characterY }=useContext(Context)
   const [showQuest,setShowQuest]=useState(false)
   
@@ -31,15 +34,15 @@ const Stage1=()=>{
   }
   return (
     <div id="canvas" style={{backgroundImage: `url(${maps[0]})`}}>
-      <img style={{height: "200px", cursor: "pointer", transform: NPCs[0]["position"]}} src={NPCs[0]["src"]} onClick={()=>questInDistance(setShowQuest,0,0,characterX,characterY)}></img>
-      <img style={{position: "absolute",height: "40px", transform: "translateX(-101px) translateY(27px)"}} src={Quest_Question}/>
+      <img style={{height: "200px", cursor: "pointer", transform: transform(NPCs[0]["x"],NPCs[0]["y"])}} src={NPCs[0]["src"]} onClick={()=>questInDistance(setShowQuest,0,0,characterX,characterY)}></img>
+      <img style={NPCs[0]["questIcon"]} src={Quest_Question}/>
       {showQuest && <Quest quest={NPCs[0]["quest"]} viewQuest={viewQuest}/>}
     </div>
 
   )
 }
-const maps=[Stage1_Map]
-const mapComps=[<Stage1/>]
+const maps=[Stage0_Map]
+const mapComps=[<Stage0/>]
 
 export const Map=()=>{
   const { stage, updateStage }=useContext(Context)

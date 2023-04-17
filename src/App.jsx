@@ -1,6 +1,6 @@
 import React from "react"
 import Stats from "./Components/Stats.jsx";
-import Character from "./Components/Character.jsx";
+import BugReport from "../src/Components/BugReport.jsx"
 import { ContextProvider } from "./Components/Context.jsx";
 import { Map } from "./Components/Map.jsx";
 
@@ -13,6 +13,7 @@ const App=()=>{
       <ContextProvider>
         <Map/>
         <Stats/>
+        <BugReport/>
       </ContextProvider>
     </div>
   )

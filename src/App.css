@@ -106,3 +106,12 @@ body{
 #decline:hover {
   background-color: orange;
 }
+
+#bug{
+  position: absolute;
+  transform: translateX(1650px) translateY(-600px);
+  height: 100px;
+  width: 150px;
+  cursor: pointer;
+  border-radius: 10px;
+}

@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react"
 import { Context } from "./Context.jsx"
-import { maps } from "../data/Maps/maps.js"
+import { maps } from "../data/maps.js"
 import Character from "./Character.jsx"
 
 /*        POSITION HANDLERS       */
@@ -8,7 +8,7 @@ import { transform,questInDistance } from "../Handlers/positionHandler.js"
 
 
 /*          NPC IMPORTS                */
-import NPCs from "../data/NPCs/NPC.js"
+import NPCs from "../data/NPC.js"
 
 /*               QUEST RELATED IMPORTS        */
 import Quest_Conversation from "../images/Quest/Quest_Conversation.gif"

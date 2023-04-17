@@ -1,5 +1,5 @@
 /*               MAP IMPORTS            */
-import Stage0_Map from "../../images/Maps/stage0.png"
+import Stage0_Map from "../images/Maps/stage0.png"
 
 
 

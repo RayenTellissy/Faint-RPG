@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Sorts+Mill+Goudy&display=swap');
-
+@font-face {
+  font-family: "Black Chancery";
+  src: url("../src/data/Fonts/BlackChancery.TTF");
+}
 
 body{
   background-color: rgba(197,255,189,255);
@@ -62,15 +65,18 @@ body{
 }
 
 #quest-title{
-  font-family: Sorts Mill Goudy;
+  font-family: "Sorts Mill Goudy";
 }
 #quest-content{
-  padding-top: 50px;
+  padding-top: 5px;
   margin-bottom: auto;
-  font-family: Sorts Mill Goudy;
+  font-family: "Sorts Mill Goudy";
+  text-align: center;
 }
 
 #accept{
+  font-family: "Black Chancery";
+  font-size: 20px;
   background-color: darkorange;
   color: white;
   border: none;
@@ -85,6 +91,8 @@ body{
 }
 
 #decline{
+  font-family: "Black Chancery";
+  font-size: 20px;
   background-color: darkorange;
   color: white;
   border: none;

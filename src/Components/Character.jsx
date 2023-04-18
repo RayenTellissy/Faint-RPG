@@ -45,20 +45,28 @@ const Character = () => {
 
     const handleKeyUp = (event) => {
       if (event.key.toUpperCase() === "W" || event.key.toUpperCase() === "Z") {
-        setCharacter(standUp)
         setIsWPressed(false)
+        if(!isSPressed && !isAPressed && !isDPressed){
+          setCharacter(standUp)
+        }
       }
       if (event.key.toUpperCase() === "A" || event.key.toUpperCase() === "Q") {
-        setCharacter(standLeft)
         setIsAPressed(false)
+        if(!isWPressed && !isSPressed && !isDPressed){
+          setCharacter(standLeft)
+        }
       }
       if (event.key.toUpperCase() === "S") {
-        setCharacter(standDown)
         setIsSPressed(false)
+        if(!isWPressed && !isAPressed && !isDPressed){
+          setCharacter(standDown)
+        }
       }
       if (event.key.toUpperCase() === "D") {
-        setCharacter(standRight)
         setIsDPressed(false)
+        if(!isWPressed && !isSPressed && !isAPressed){
+          setCharacter(standRight)
+        }
       }
     }
 

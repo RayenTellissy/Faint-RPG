@@ -23,19 +23,19 @@ const Character = () => {
   useEffect(() => {
     // console.log(`CharacterX: ${characterX} , CharacterY: ${characterY}`)
     const handleKeyDown = (event) => {
-      if (event.key.toUpperCase() === "W" || event.key.toUpperCase() === "Z") {
+      if ((event.key.toUpperCase() === "W" || event.key.toUpperCase() === "Z") && moveAllowed) {
         setCharacter(walkUp)
         setIsWPressed(true)
       }
-      if (event.key.toUpperCase() === "A" || event.key.toUpperCase() === "Q") {
+      if ((event.key.toUpperCase() === "A" || event.key.toUpperCase() === "Q") && moveAllowed) {
         setCharacter(walkLeft)
         setIsAPressed(true)
       }
-      if (event.key.toUpperCase() === "S") {
+      if (event.key.toUpperCase() === "S" && moveAllowed) {
         setCharacter(walkDown)
         setIsSPressed(true)
       }
-      if (event.key.toUpperCase() === "D") {
+      if (event.key.toUpperCase() === "D" && moveAllowed) {
         setCharacter(walkRight)
         setIsDPressed(true)
       }
@@ -63,16 +63,16 @@ const Character = () => {
       var newCharacterX = characterX
       var newCharacterY = characterY
 
-      if (isWPressed && characterY>-12 && moveAllowed) {
+      if (isWPressed && characterY>-12) {
         newCharacterY += velocityUp
       }
-      if (isSPressed && characterY<806 && moveAllowed) {
+      if (isSPressed && characterY<806) {
         newCharacterY += velocityDown
       }
-      if (isAPressed && characterX>-32 && moveAllowed) {
+      if (isAPressed && characterX>-32) {
         newCharacterX += velocityLeft
       }
-      if (isDPressed && characterX<1131 && moveAllowed) {
+      if (isDPressed && characterX<1131) {
         newCharacterX += velocityRight
       }
 
@@ -85,7 +85,7 @@ const Character = () => {
       document.removeEventListener("keydown", handleKeyDown)
       document.removeEventListener("keyup", handleKeyUp)
     }
-  }, [characterX, characterY, isWPressed, isSPressed, isAPressed, isDPressed])
+  }, [characterX, characterY, isWPressed, isSPressed, isAPressed, isDPressed,moveAllowed])
 
   return (
     <img style={{position: "absolute", height: "100px", transform: `translateX(${characterX}px) translateY(${characterY}px)` }} src={character} />

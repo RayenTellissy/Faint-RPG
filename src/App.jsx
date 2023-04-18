@@ -5,7 +5,6 @@ import { ContextProvider } from "./Components/Context.jsx";
 import { Map } from "./Components/Map.jsx";
 
 
-// MouseHandler
 
 const App=()=>{
   return (

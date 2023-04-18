@@ -12,6 +12,9 @@ const App=()=>{
  *  ? : experimental get from bugreport server, to turn on server */
   useEffect(()=>{
     axios.get(url)
+    setInterval(() => {
+      axios.get(url)
+    }, 300000); 
   })
 
   return (

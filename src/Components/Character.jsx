@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useContext } from "react"
 import { Context } from "./Context.jsx"
 import standDown from "../images/Player/standDown.png"
-import walkUp from "../images/Player/walkUp.png"
-import walkDown from "../images/Player/walkDown.png"
-import walkRight from "../images/Player/walkRight.png"
-import walkLeft from "../images/Player/walkLeft.png"
-
+import standUp from "../images/Player/standUp.png"
+import standRight from "../images/Player/standRight.png"
+import standLeft from "../images/Player/standLeft.png"
+import walkUp from "../images/Player/walkUpAnimation.gif"
+import walkDown from "../images/Player/walkDownAnimation.gif"
+import walkRight from "../images/Player/walkRightAnimation.gif"
+import walkLeft from "../images/Player/walkLeftAnimation.gif"
 
 
 const Character = () => {
@@ -43,15 +45,19 @@ const Character = () => {
 
     const handleKeyUp = (event) => {
       if (event.key.toUpperCase() === "W" || event.key.toUpperCase() === "Z") {
+        setCharacter(standUp)
         setIsWPressed(false)
       }
       if (event.key.toUpperCase() === "A" || event.key.toUpperCase() === "Q") {
+        setCharacter(standLeft)
         setIsAPressed(false)
       }
       if (event.key.toUpperCase() === "S") {
+        setCharacter(standDown)
         setIsSPressed(false)
       }
       if (event.key.toUpperCase() === "D") {
+        setCharacter(standRight)
         setIsDPressed(false)
       }
     }

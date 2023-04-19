@@ -4,7 +4,7 @@ import { maps } from "../data/maps.js"
 import Character from "./Character.jsx"
 
 /*        POSITION HANDLERS       */
-import { transform,questInDistance } from "../Handlers/positionHandler.js"
+import { transform,questInDistance, questTransform } from "../Handlers/positionHandler.js"
 
 
 /*          NPC IMPORTS                */
@@ -17,8 +17,9 @@ import Quest from "./Quest.jsx"
 
 
 const Stage0=()=>{
-  const { characterX, characterY }=useContext(Context)
+  const { characterX, characterY, addQuest }=useContext(Context)
   const [showQuest,setShowQuest]=useState(false)
+  const [icon,setIcon]=("40px")
   var xanafinX=NPCs[0]["x"]
   var xanafinY=NPCs[0]["y"]
   
@@ -26,14 +27,19 @@ const Stage0=()=>{
     setShowQuest(!showQuest)
   }
 
+  const removeIcon=()=>{
+    setIcon("0px")
+  }
+
+
   return (
     <div id="canvas" style={{backgroundImage: `url(${maps[0]})`}}>
 
       <Character/>
 
       <img style={{height: "200px", cursor: "pointer", transform: transform(xanafinX,xanafinY)}} src={NPCs[0]["src"]} onClick={()=>questInDistance(setShowQuest,characterX,characterY,xanafinX,xanafinY)}></img>
-      <img style={NPCs[0]["questIcon"]} src={Quest_Question}/>
-      {showQuest && <Quest questTitle={NPCs[0]["questTitle"]} quest={NPCs[0]["quest"]} reward={NPCs[0]["reward"]} rewardStats={NPCs[0]["rewardStats"]} rewardImage={NPCs[0]["rewardImage"]} rewardGold={NPCs[0]["rewardGold"]} rewardXP={NPCs[0]["rewardXP"]} viewQuest={viewQuest}/>}
+      <img style={{height: icon ,...NPCs[0].quest.questIcon}} src={Quest_Question}/>
+      {showQuest && <Quest quest={NPCs[0]["quest"]} reward={NPCs[0]["reward"]} viewQuest={viewQuest} addQuest={addQuest} removeIcon={removeIcon}/>}
     </div>
   )
 }

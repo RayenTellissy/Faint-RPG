@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react"
 import { Context } from "./Context.jsx"
 
-const Quest=({questTitle,quest,reward,rewardStats,rewardImage,rewardGold,rewardXP,viewQuest})=>{
+const Quest=({quest,reward,viewQuest,addQuest,removeIcon})=>{
   const { allowMove }=useContext(Context)
   useEffect(()=>{
     allowMove()
@@ -9,26 +9,26 @@ const Quest=({questTitle,quest,reward,rewardStats,rewardImage,rewardGold,rewardX
   return(
     <div id="quest-parent">
       <div id="quest-container">
-        <h2 id="quest-title">{questTitle}</h2>
-        <p id="quest-content">{quest}</p>
+        <h2 id="quest-title">{quest.questTitle}</h2>
+        <p id="quest-content">{quest.questContent}</p>
         <div id="reward-container">
           <p id="reward-text">You will receive:</p>
-          <p id="reward-name">{reward}</p>
+          <p id="reward-name">{reward.rewardName}</p>
           <div id="reward-items">
             <div id="reward-info">
               <div id="reward-content">
-                <img src={rewardImage}/>
-                <p id="reward-stats">{rewardStats}</p>
+                <img src={reward.rewardImage}/>
+                <p id="reward-stats">{reward.rewardStats}</p>
               </div>
               <div id="reward-amounts">
-                <p id="gold-amount">+{rewardGold} gold</p>
-                <p id="exp-amount">+{rewardXP} xp</p>
+                <p id="gold-amount">+{reward.rewardGold} gold</p>
+                <p id="exp-amount">+{reward.rewardXP} xp</p>
               </div>
             </div>
           </div>
         </div>
         <div style={{display: "inline-block"}}>
-          <button id="accept" onClick={()=>{allowMove();viewQuest()}}>Accept</button>
+          <button id="accept" onClick={()=>{allowMove();viewQuest();removeIcon();addQuest(quest.questTrack1,quest.questTrack2)}}>Accept</button>
           <button id="decline" onClick={()=>{allowMove();viewQuest()}}>Decline</button>
         </div>
       </div>

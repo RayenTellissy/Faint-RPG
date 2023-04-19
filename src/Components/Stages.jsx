@@ -33,7 +33,7 @@ const Stage0=()=>{
 
       <img style={{height: "200px", cursor: "pointer", transform: transform(xanafinX,xanafinY)}} src={NPCs[0]["src"]} onClick={()=>questInDistance(setShowQuest,characterX,characterY,xanafinX,xanafinY)}></img>
       <img style={NPCs[0]["questIcon"]} src={Quest_Question}/>
-      {showQuest && <Quest questTitle={NPCs[0]["questTitle"]} quest={NPCs[0]["quest"]} reward={NPCs[0]["reward"]} rewardImage={NPCs[0]["rewardImage"]} rewardGold={NPCs[0]["rewardGold"]} rewardXP={NPCs[0]["rewardXP"]} viewQuest={viewQuest}/>}
+      {showQuest && <Quest questTitle={NPCs[0]["questTitle"]} quest={NPCs[0]["quest"]} reward={NPCs[0]["reward"]} rewardStats={NPCs[0]["rewardStats"]} rewardImage={NPCs[0]["rewardImage"]} rewardGold={NPCs[0]["rewardGold"]} rewardXP={NPCs[0]["rewardXP"]} viewQuest={viewQuest}/>}
     </div>
   )
 }

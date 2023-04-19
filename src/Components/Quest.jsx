@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react"
 import { Context } from "./Context.jsx"
 
-const Quest=({questTitle,quest,reward,rewardImage,rewardGold,rewardXP,viewQuest})=>{
+const Quest=({questTitle,quest,reward,rewardStats,rewardImage,rewardGold,rewardXP,viewQuest})=>{
   const { allowMove }=useContext(Context)
   useEffect(()=>{
     allowMove()
@@ -13,13 +13,16 @@ const Quest=({questTitle,quest,reward,rewardImage,rewardGold,rewardXP,viewQuest}
         <p id="quest-content">{quest}</p>
         <div id="reward-container">
           <p id="reward-text">You will receive:</p>
+          <p id="reward-name">{reward}</p>
           <div id="reward-items">
             <div id="reward-info">
-              <img src={rewardImage}/>
+              <div id="reward-content">
+                <img src={rewardImage}/>
+                <p id="reward-stats">{rewardStats}</p>
+              </div>
               <div id="reward-amounts">
-                <p id="reward-name">{reward}</p>
                 <p id="gold-amount">+{rewardGold} gold</p>
-                <p id="exp-amount">+{rewardXP} experience</p>
+                <p id="exp-amount">+{rewardXP} xp</p>
               </div>
             </div>
           </div>
@@ -29,11 +32,7 @@ const Quest=({questTitle,quest,reward,rewardImage,rewardGold,rewardXP,viewQuest}
           <button id="decline" onClick={()=>{allowMove();viewQuest()}}>Decline</button>
         </div>
       </div>
-</div>
-
-
-
-    
+    </div>
   )
 }
 

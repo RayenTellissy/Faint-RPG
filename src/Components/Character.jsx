@@ -22,8 +22,17 @@ const Character = () => {
   const [isAPressed, setIsAPressed] = useState(false)
   const [isDPressed, setIsDPressed] = useState(false)
 
+  //! preloading images
   useEffect(() => {
-    // console.log(`CharacterX: ${characterX} , CharacterY: ${characterY}`)
+    const images=[walkUp,walkDown,walkLeft,walkRight]
+    images.forEach(src=>{
+      const img=new Image()
+      img.src=src
+    })
+  },[])
+
+  useEffect(() => {
+     console.log(`CharacterX: ${characterX} , CharacterY: ${characterY}`)
     const handleKeyDown = (event) => {
       if ((event.key.toUpperCase() === "W" || event.key.toUpperCase() === "Z") && moveAllowed) {
         setCharacter(walkUp)

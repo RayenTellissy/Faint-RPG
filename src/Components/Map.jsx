@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import { useContext } from "react"
 import { Context } from "./Context.jsx"
 import { mapComps } from "./Stages.jsx"
 

@@ -31,7 +31,7 @@ const BugReport=()=>{
   )
 
   return(
-    <div style={{position: "absolute"}}>
+    <div style={{position: "absolute", transform: "translateY(500px)"}}>
       <button id="bug" onClick={handleWindow}>Report a Bug</button>
       {showReport && reportWindow}
     </div>

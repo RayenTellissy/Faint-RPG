@@ -16,3 +16,10 @@ export const questInDistance=(fn,characterX,characterY,NPCx,NPCy)=>{
     fn(true)
   }
 }
+
+export const triggerStage=(characterX,characterY,triggerTop,triggerBottom,triggerLeft,triggerRight)=>{
+  if(characterX>triggerLeft && characterX<triggerRight && characterY>triggerTop && characterY<triggerBottom){
+    return true
+  }
+  return false
+}

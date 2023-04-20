@@ -8,6 +8,7 @@ export const ContextProvider=({children})=>{
   const [characterY, setCharacterY] = useState(370)
   const [moveAllowed,setMoveAllowed] = useState(true)
   const [quests,setQuests] = useState([])
+  const [eliminated,setEliminated] = useState(0)
   
   const allowMove=()=>{
     setMoveAllowed(!moveAllowed)
@@ -25,18 +26,21 @@ export const ContextProvider=({children})=>{
     setCharacterY(n)
   }
 
-  const addQuest=(questTrack1,questTrack2,questIcon)=>{
-    console.log(questIcon.height)
+  const addQuest=(questTitle,questTrack1,questTrack2)=>{
     if(!questTrack2){
-      setQuests(quests.push(questTrack1))
+      setQuests([...quests,[questTitle,questTrack1]])
     }
     else{
-      setQuests(quests.push([questTrack1,questTrack2]))
+      setQuests([...quests,[questTitle,questTrack1,questTrack2]])
     }
   }
   
+  const updateEliminated=()=>{
+    setEliminated(eliminated+1)
+  }
+  
   return(
-    <Context.Provider value={{stage,updateStage,characterX,characterY,updateCharacterX,updateCharacterY,moveAllowed,allowMove,quests,addQuest}}>
+    <Context.Provider value={{stage,updateStage,characterX,characterY,updateCharacterX,updateCharacterY,moveAllowed,allowMove,quests,addQuest,eliminated,updateEliminated}}>
       {children}
     </Context.Provider>
   )

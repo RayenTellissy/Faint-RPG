@@ -6,7 +6,10 @@
 }
 
 body{
-  background-color: rgb(125, 83, 47);
+  background-color: rgb(169, 155, 135);
+}
+ul{
+  list-style-type: none;
 }
 #canvas{
   border: 2px solid;
@@ -186,4 +189,49 @@ body{
   width: 150px;
   cursor: pointer;
   border-radius: 10px;
+}
+
+.quest-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 290px;
+  background-color: #232323;
+  border: 1px solid #5a5a5a;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+.quest-container-title {
+  margin-top: 0;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  font-family: "Black Chancery";
+  color: #833f00;
+}
+
+.quest {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #5d2d00;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.638);
+}
+
+.quest-title {
+  font-family: "Lakki Reddy";
+  margin-top: 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #d6d6d6;
+}
+
+.quest-description {
+  font-family: "Sorts Mill Goudy";
+  margin-bottom: 0;
+  font-size: 20px;
+  color: #bbbbbb;
 }

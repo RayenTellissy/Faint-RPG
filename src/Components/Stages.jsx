@@ -19,16 +19,19 @@ import Quest from "./Quest.jsx"
 const Stage0=()=>{
   const { characterX, characterY, addQuest }=useContext(Context)
   const [showQuest,setShowQuest]=useState(false)
-  const [icon,setIcon]=("40px")
+  const [icon,setIcon]=useState("40px")
+  const [disabled,setDisabled]=useState(false)
   var xanafinX=NPCs[0]["x"]
   var xanafinY=NPCs[0]["y"]
   
-  const viewQuest=()=>{
-    setShowQuest(!showQuest)
-  }
-
-  const removeIcon=()=>{
-    setIcon("0px")
+  const viewQuest=(param)=>{
+    if(param==="declined"){
+      setShowQuest(!showQuest)
+    }
+    else if(param==="accepted"){
+      setDisabled(true)
+      setIcon("0px")
+    }
   }
 
 
@@ -39,7 +42,7 @@ const Stage0=()=>{
 
       <img style={{height: "200px", cursor: "pointer", transform: transform(xanafinX,xanafinY)}} src={NPCs[0]["src"]} onClick={()=>questInDistance(setShowQuest,characterX,characterY,xanafinX,xanafinY)}></img>
       <img style={{height: icon ,...NPCs[0].quest.questIcon}} src={Quest_Question}/>
-      {showQuest && <Quest quest={NPCs[0]["quest"]} reward={NPCs[0]["reward"]} viewQuest={viewQuest} addQuest={addQuest} removeIcon={removeIcon}/>}
+      {showQuest && !disabled && <Quest quest={NPCs[0]["quest"]} reward={NPCs[0]["reward"]} viewQuest={viewQuest} addQuest={addQuest}/>}
     </div>
   )
 }

@@ -32,7 +32,7 @@ const Character = () => {
   },[])
 
   useEffect(() => {
-     console.log(`CharacterX: ${characterX} , CharacterY: ${characterY}`)
+  console.log(`CharacterX: ${characterX} , CharacterY: ${characterY}`)
     const handleKeyDown = (event) => {
       if ((event.key.toUpperCase() === "W" || event.key.toUpperCase() === "Z") && moveAllowed) {
         setCharacter(walkUp)

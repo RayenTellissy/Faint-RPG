@@ -20,7 +20,7 @@ const BugReport=()=>{
   }
 
   const reportWindow=(
-    <div style={{position: "absolute", transform: "translateX(500px) translateY(-600px)"}}>
+    <div style={{position: "absolute", transform: "translateX(500px) translateY(-800px)"}}>
         <h2>Report a Bug</h2>
         <textarea rows={3} cols={50}
           onChange={e=>setContent(e.target.value)}
@@ -31,7 +31,7 @@ const BugReport=()=>{
   )
 
   return(
-    <div style={{position: "absolute", transform: "translateY(500px)"}}>
+    <div style={{position: "absolute", top: "1400px"}}>
       <button id="bug" onClick={handleWindow}>Report a Bug</button>
       {showReport && reportWindow}
     </div>

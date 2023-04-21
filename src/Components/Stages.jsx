@@ -3,6 +3,7 @@ import { Context } from "./Context.jsx"
 import { maps } from "../data/maps.js"
 import Character from "./Character.jsx"
 
+
 /*        POSITION HANDLERS       */
 import { transform, questInDistance, triggerStage } from "../Handlers/positionHandler.js"
 
@@ -17,8 +18,10 @@ import indicatorImage from "../images/Quest/indicator.png"
 import Quest from "./Quest.jsx"
 
 
+//! stage 1
+
 const Stage0=()=>{
-  const { stage, updateStage, characterX, characterY, addQuest }=useContext(Context)
+  const { stage, updateStage, characterX, characterY, updateCharacterX, updateCharacterY, addQuest }=useContext(Context)
   const [showQuest,setShowQuest]=useState(false)
   const [icon,setIcon]=useState("40px")
   const [disabled,setDisabled]=useState(false)
@@ -26,11 +29,23 @@ const Stage0=()=>{
   var xanafinX=NPCs[0]["x"]
   var xanafinY=NPCs[0]["y"]
 
+  //! preloading maps
+    const stage1=new Image()
+    stage1.src=maps[1]
+  //! end of preloading
+
   useEffect(()=>{
-    if(triggerStage(characterX,characterY,775,808,490,750)){
+    if(triggerStage(characterX,characterY,800,808,490,750)){
       updateStage(1)
     }
   },[characterX,characterY])
+
+  useEffect(()=>{
+    return ()=>{
+      updateCharacterX(460)
+      updateCharacterY(0)
+    }
+  },[])
   
   const viewQuest=(param)=>{
     if(param==="declined"){
@@ -57,6 +72,44 @@ const Stage0=()=>{
   )
 }
 
+//! stage 2
+
+const Stage1=()=>{
+  const { stage, updateStage, characterX, characterY, updateCharacterX, updateCharacterY, addQuest }=useContext(Context)
+  const [showQuest,setShowQuest]=useState(false)
+  const [icon,setIcon]=useState("40px")
+  const [disabled,setDisabled]=useState(false)
+  const [indicator,setIndictor]=useState("0px")
+
+  useEffect(()=>{
+    if(triggerStage(characterX,characterY,-14,0,313,620)){
+      updateStage(0)
+      updateCharacterX(610)
+      updateCharacterY(799)
+    }
+  },[characterX,characterY])
+  
+  const viewQuest=(param)=>{
+    if(param==="declined"){
+      setShowQuest(!showQuest)
+    }
+    else if(param==="accepted"){
+      setDisabled(true)
+      setIcon("0px")
+      setIndictor("80px")
+    }
+  }
+
+
+  return (
+    <div id="canvas" style={{backgroundImage: `url(${maps[1]})`}}>
+
+      <Character/>
+
+     
+    </div>
+  )
+} 
 
 
 
@@ -98,4 +151,5 @@ const Stage0=()=>{
 
 
 
-export const mapComps=[<Stage0/>]
+
+export const mapComps=[<Stage0/>,<Stage1/>]

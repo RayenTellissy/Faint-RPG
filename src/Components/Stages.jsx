@@ -7,6 +7,9 @@ import Character from "./Character.jsx"
 /*        POSITION HANDLERS       */
 import { transform, questInDistance, triggerStage } from "../Handlers/positionHandler.js"
 
+/*          ENEMIES IMPORTS             */
+import Enemies from "../data/enemies.js"
+
 
 /*          NPC IMPORTS                */
 import NPCs from "../data/NPC.js"
@@ -105,8 +108,8 @@ const Stage1=()=>{
     <div id="canvas" style={{backgroundImage: `url(${maps[1]})`}}>
 
       <Character/>
-
-     
+      <img style={{height: "80px",transform: "translateX(318px) translateY(700px)",cursor: "pointer"}} src={Enemies.Gypsy.up}></img>
+      <img style={{height: "80px",transform: "translateX(900px) translateY(450px)",cursor: "pointer"}} src={Enemies.Gypsy.left}></img>
     </div>
   )
 } 
